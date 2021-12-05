@@ -2,7 +2,7 @@ package com.team16.foodapp.food;
 
 import java.util.Date;
 
-public class FoodVO {
+public class FoodVO { 
 	private int id ;
 	private String name ;
 	private String memo ;
