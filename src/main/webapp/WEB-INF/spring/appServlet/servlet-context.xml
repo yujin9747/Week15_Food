@@ -21,6 +21,19 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 7. configure context file -->
+	<beans:bean id = "ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name= "driverClassName" value="com.mysql.jdbc.Driver"></beans:property>
+		<beans:property name="url" value="jdbc:mysql://walab.handong.edu/PP1_22000630"></beans:property>
+		<beans:property name="username" value="PP1_22000630"></beans:property>
+		<beans:property name="password" value="ieVah4zu"></beans:property>
+	</beans:bean>
+	<beans:bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+		<beans:property name="dataSource" ref="ds"></beans:property> 
+	</beans:bean>
+	<beans:bean id="dao" class="com.team16.foodapp.food.FoodDAO">
+		<beans:property name="template" ref="jt"></beans:property>
+	</beans:bean>
 	<context:component-scan base-package="com.team16.foodapp" />
 	
 	
