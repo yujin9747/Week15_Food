@@ -55,11 +55,11 @@
 		<td>${u.memo}</td>
 		<td>${u.expirationdate}</td>
 		<td>${u.expired}</td>
-		<td><button type = "button" onclick="location.href='editfood/${u.id}'" >Edit</button></td>
+		<td><button type = "button" onclick="location.href='editform/${u.id}'" >Edit</button></td>
 		<td><a href="javascript:delete_ok('${u.id}')">Delete</a></td>
 	</tr>
 </c:forEach>
 </table>
-<br/><button type = "button"  onclick="location.href='add'">Add New Post</button>
+<br/><button type = "button"  onclick="location.href='addfoodform'">Add New Post</button>
 </body>
 </html>
