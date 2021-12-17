@@ -16,18 +16,18 @@ public class FoodController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/food/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String foodList(Model model) {
 		model.addAttribute("list", foodDAO.getFoodList());
 		return "list" ;
 	}
 	
-	@RequestMapping(value = "/food/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addFood() {
 		return "addfoodform" ;
 	}
 	
-	@RequestMapping(value = "/food/addok", method = RequestMethod.POST)
+	@RequestMapping(value = "/addok", method = RequestMethod.POST)
 	public String addFoodOk(FoodVO vo) {
 		int i = foodDAO.insertFood(vo) ;
 		if(i==0) System.out.println("데이터 추가 실패!") ;
@@ -35,14 +35,14 @@ public class FoodController {
 		return "redirect:list" ;
 	}
 	
-	@RequestMapping(value = "/food/editfood/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/editfood/{id}", method = RequestMethod.GET)
 	public String editPost(@PathVariable("id") int id, Model model) {
 		FoodVO foodVO = foodDAO.getFood(id) ;
 		model.addAttribute("foodVO", foodVO) ;
 		return "editform" ;
 	}
 	
-	@RequestMapping(value = "/food/editok", method = RequestMethod.POST)
+	@RequestMapping(value = "/editok", method = RequestMethod.POST)
 	public String editFoodOk(FoodVO vo) {
 		int i = foodDAO.updateFood(vo) ;
 		if(i==0) System.out.println("데이터 수정 실패!") ;
@@ -51,7 +51,7 @@ public class FoodController {
 	}
 	
 	
-	@RequestMapping(value = "/food/deleteok/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
 	public String deleteFood(@PathVariable("id") int id) {
 		int i = foodDAO.deleteFood(id) ;
 		if(i==0) System.out.println("데이터 삭제 실패!") ;
