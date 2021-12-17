@@ -11,53 +11,57 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class FoodController {
 
 	@Autowired
-	FoodDAO foodDAO ;
-	
+	FoodDAO foodDAO;
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String foodList(Model model) {
 		model.addAttribute("list", foodDAO.getFoodList());
-		return "list" ;
+		return "list";
 	}
-	
+
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addFood() {
-		return "addfoodform" ;
+		return "addfoodform";
 	}
-	
+
 	@RequestMapping(value = "/addok", method = RequestMethod.POST)
 	public String addFoodOk(FoodVO vo) {
-		int i = foodDAO.insertFood(vo) ;
-		if(i==0) System.out.println("µ•¿Ã≈Õ √ﬂ∞° Ω«∆–!") ;
-		else System.out.println("µ•¿Ã≈Õ √ﬂ∞° º∫∞¯!") ;
-		return "redirect:list" ;
+		int i = foodDAO.insertFood(vo);
+		if (i == 0)
+			System.out.println("Îç∞Ïù¥ÌÑ∞ Ï∂îÍ∞Ä Ïã§Ìå®!");
+		else
+			System.out.println("Îç∞Ïù¥ÌÑ∞ Ï∂îÍ∞Ä ÏÑ±Í≥µ!");
+		return "redirect:list";
 	}
-	
+
 	@RequestMapping(value = "/editfood/{id}", method = RequestMethod.GET)
 	public String editPost(@PathVariable("id") int id, Model model) {
-		FoodVO foodVO = foodDAO.getFood(id) ;
-		model.addAttribute("foodVO", foodVO) ;
-		return "editform" ;
+		FoodVO foodVO = foodDAO.getFood(id);
+		model.addAttribute("foodVO", foodVO);
+		return "editform";
 	}
-	
+
 	@RequestMapping(value = "/editok", method = RequestMethod.POST)
 	public String editFoodOk(FoodVO vo) {
-		int i = foodDAO.updateFood(vo) ;
-		if(i==0) System.out.println("µ•¿Ã≈Õ ºˆ¡§ Ω«∆–!") ;
-		else System.out.println("µ•¿Ã≈Õ ºˆ¡§ º∫∞¯!") ;
-		return "redirect:list" ;
+		int i = foodDAO.updateFood(vo);
+		if (i == 0)
+			System.out.println("Îç∞Ïù¥ÌÑ∞ ÏàòÏ†ï Ïã§Ìå®!");
+		else
+			System.out.println("Îç∞Ïù¥ÌÑ∞ ÏàòÏ†ï ÏÑ±Í≥µ!");
+		return "redirect:list";
 	}
-	
-	
+
 	@RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
 	public String deleteFood(@PathVariable("id") int id) {
-		int i = foodDAO.deleteFood(id) ;
-		if(i==0) System.out.println("µ•¿Ã≈Õ ªË¡¶ Ω«∆–!") ;
-		else System.out.println("µ•¿Ã≈Õ ªË¡¶ º∫∞¯!") ;
-		return "redirect:../list" ;
+		int i = foodDAO.deleteFood(id);
+		if (i == 0)
+			System.out.println("Îç∞Ïù¥ÌÑ∞ ÏÇ≠Ï†ú Ïã§Ìå®!");
+		else
+			System.out.println("Îç∞Ïù¥ÌÑ∞ ÏÇ≠Ï†ú ÏÑ±Í≥µ!");
+		return "redirect:../list";
 	}
-	
 
 }
