@@ -8,6 +8,7 @@ public class FoodVO {
 	private String memo ;
 	private Date expirationdate ;
 	private int expired ;
+	
 	public int getId() {
 		return id;
 	}

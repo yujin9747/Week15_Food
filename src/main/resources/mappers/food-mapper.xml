@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Food">
+	<insert id="insertFood">
+		insert into food (name, memo, expirationdate) values(#{name} , #{memo} , #{expirationdate})
+	</insert>
+	<update id="updateFood">
+		update food set name = #{name}, memo = #{memo}, expirationdate = #{expirationdate} where id = #{id}
+	</update>
+	<delete id="deleteFood">
+		delete from food where id = #{id}
+	</delete>
+	<select id="getFood" resultType="food">
+		select * from food where id=#{id} 
+	</select>
+	<select id="getFoodList" resultType="food">
+		select * from food order by expirationdate </select>
+</mapper>
