@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl {
 	@Autowired
 	UserDAO userDAO;
-
 	public UserVO getUser(UserVO vo) {
 		return userDAO.getUser(vo);
 	}
