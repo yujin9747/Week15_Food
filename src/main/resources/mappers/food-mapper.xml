@@ -2,10 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Food">
 	<insert id="insertFood">
-		insert into food (name, memo, expirationdate) values(#{name} , #{memo} , #{expirationdate})
+		insert into food (name, memo, expirationdate, inventory, price) values(#{name} , #{memo} , #{expirationdate},  #{inventory},  #{price})
 	</insert>
 	<update id="updateFood">
-		update food set name = #{name}, memo = #{memo}, expirationdate = #{expirationdate} where id = #{id}
+		update food set name = #{name}, memo = #{memo}, expirationdate = #{expirationdate}, inventory = #{inventory}, price = #{price} where id = #{id}
+	</update>
+	<update id="completeFood">
+		update food set comp = 1 where id = #{id}
 	</update>
 	<delete id="deleteFood">
 		delete from food where id = #{id}
@@ -14,5 +17,5 @@
 		select * from food where id=#{id} 
 	</select>
 	<select id="getFoodList" resultType="food">
-		select * from food order by expirationdate </select>
+		select * from food order by id </select>
 </mapper>
