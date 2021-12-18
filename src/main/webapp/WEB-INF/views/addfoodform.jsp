@@ -1,31 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@page import="com.team16.foodapp.food.FoodDAO, com.team16.foodapp.food.FoodVO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Form</title>
+<title>addform page</title>
 </head>
 <body>
 
-<%
-	FoodDAO foodDAO = new FoodDAO();
-	String id=request.getParameter("id");	
-	FoodVO u=foodDAO.getFood(Integer.parseInt(id));
-%>
-
-<h1>식재로 정보 수정</h1>
-<form action="editfood.jsp" method="post">
-<input type="hidden" name="seq" value="<%=u.getId() %>"/>
-<table>
-<tr><td>Food:</td><td><input type="text" name="name" value="<%= u.getName()%>"/></td></tr>
-<tr><td>Memo:</td><td><input type="text" name="memo" value="<%= u.getMemo()%>" /></td></tr>
-<tr><td>Date:</td><td><input type="text" name="memo" value="<%= u.getExpirationdate()%>" /></td></tr>
-<tr><td colspan="2"><input type="submit" value="Edit"/>
-<input type="button" value="Cancel" onclick="history.back()"/></td></tr>
+<h1>식재료 추가하기</h1>
+<form action="addok" method="post">
+<table id="edit">
+<tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
+<tr><td>Memo:</td><td><input type="text" name="memo"/></td></tr>
+<tr><td>Date:</td><td><input type="text" name="expirationdate"/> 2021/01/31 형태로 입력하세요</td></tr>
+<tr><td>Inventory:</td><td><input type="text" name="inventory"/></td></tr>
+<tr><td>Price:</td><td><input type="text" name="price"/></td></tr>
+<tr><td><button type = "button" onclick="location.href='list'">식재료 목록 보기</button></td>
+<td align="right"><button type="submit">등록하기</button></td></tr>
 </table>
 </form>
-
 </body>
 </html>
