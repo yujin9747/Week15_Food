@@ -1,14 +1,26 @@
 package com.team16.foodapp.food;
 
-import java.util.Date;
-
 public class FoodVO {
 	private int id ;
 	private String name ;
 	private String memo ;
-	private Date expirationdate ;
-	private int expired ;
+	private String expirationdate ;
+	private int comp ;
+	private String inventory ;
+	private String price ;
 	
+	public String getInventory() {
+		return inventory;
+	}
+	public void setInventory(String inventory) {
+		this.inventory = inventory;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	public int getId() {
 		return id;
 	}
@@ -27,16 +39,16 @@ public class FoodVO {
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
-	public Date getExpirationdate() {
+	public String getExpirationdate() {
 		return expirationdate;
 	}
-	public void setExpirationdate(Date expirationdate) {
+	public void setExpirationdate(String expirationdate) {
 		this.expirationdate = expirationdate;
 	}
-	public int getExpired() {
-		return expired;
+	public int getComp() {
+		return comp;
 	}
-	public void setExpired(int expired) {
-		this.expired = expired;
+	public void setComp(int comp) {
+		this.comp = comp;
 	}
 }
