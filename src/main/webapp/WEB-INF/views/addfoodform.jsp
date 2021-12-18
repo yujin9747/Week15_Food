@@ -12,12 +12,13 @@
 <form action="addok" method="post">
 <table id="edit">
 <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
-<tr><td>Memo:</td><td><input type="text" name="memo"/></td></tr>
+<tr><td>Memo:</td><td><textarea cols="10"  rows="2" name="memo"></textarea></td></tr>
 <tr><td>Date:</td><td><input type="text" name="expirationdate"/> 2021/01/31 형태로 입력하세요</td></tr>
 <tr><td>Inventory:</td><td><input type="text" name="inventory"/></td></tr>
 <tr><td>Price:</td><td><input type="text" name="price"/></td></tr>
 <tr><td><button type = "button" onclick="location.href='list'">식재료 목록 보기</button></td>
-<td align="right"><button type="submit">등록하기</button></td></tr>
+<td align="right"><button type="submit">등록하기</button></td>
+<td align="left"><button type="reset">reset</button></td></tr>
 </table>
 </form>
 </body>
